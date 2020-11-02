@@ -1,0 +1,35 @@
+{
+  "name": "football-watch",
+  "version": "1.0.0",
+  "description": "**Ini adalah website football league yang dibuat untuk submisi kedua kelas \"Belajar Membuat PWA\" di Dicoding**",
+  "main": "app.js",
+  "scripts": {
+    "start-dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryanYehuda/WebsiteFootballPWA.git"
+  },
+  "author": "Bryan Yehuda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryanYehuda/WebsiteFootballPWA/issues"
+  },
+  "homepage": "https://github.com/BryanYehuda/WebsiteFootballPWA#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.3.0"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.7"
+  }
+}
