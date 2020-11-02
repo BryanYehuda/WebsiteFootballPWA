@@ -1,13 +1,12 @@
-const CACHE_NAME = 'tastefood-3';
+const CACHE_NAME = 'Football-Watch';
 var urlsToCache = [
 	'/',
 	'/manifest.json',
 	'/nav.html',
 	'/index.html',
-	'/pages/home.html',
-	'/pages/location.html',
-	'/pages/contact.html',
-	'/pages/menu.html',
+	'/pages/teams.html',
+	'/pages/standings.html',
+	'/pages/favorites.html',
 	'/css/style.css',
 	'/css/materialize.css',
 	'/css/materialize.min.css',
@@ -15,11 +14,7 @@ var urlsToCache = [
 	'/js/script.js',
 	'/js/init.js',
 	'/js/nav.js',
-	'/images/backgroundhome.jpg',
-	'/images/food.jpg',
-	'/images/chef.jpg',
 	'/images/logo.png',
-	'/images/location.jpg',
 	'/images/logo384.png',
 	'/images/logo256.png',
 	'/images/logo192.png',
@@ -30,22 +25,7 @@ var urlsToCache = [
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
 	'https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
 	'https://code.jquery.com/jquery-2.1.1.min.js',
-	'/images/favicon.ico',
-	'/images/menu/bakmoy.jpg',
-	'/images/menu/bakuteh.jpg',
-	'/images/menu/buburayam.jpg',
-	'/images/menu/chickensteak.jpeg',
-	'/images/menu/empal.jpg',
-	'/images/menu/koloke.jpg',
-	'/images/menu/miayam.jpg',
-	'/images/menu/nasibakar.jpg',
-	'/images/menu/nasibali.jpg',
-	'/images/menu/nasigoreng.jpg',
-	'/images/menu/rawon.jpg',
-	'/images/menu/sate.jpg',
-	'/images/menu/soto.jpg',
-	'/images/menu/supmerah.jpg',
-	'/images/menu/timlo.jpg'
+	'/images/favicon.ico'
 ];
 
 self.addEventListener("install", event => {

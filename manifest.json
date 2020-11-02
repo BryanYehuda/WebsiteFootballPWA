@@ -1,11 +1,11 @@
 {
-    "name": "Tastefood - The Best Restaurant",
-    "short_name": "Tastefood",
-    "description": "Tastefood - where food meets your heart and soul!",
+    "name": "Football Watch - Watch Football Anywhere",
+    "short_name": "Football Watch",
+    "description": "Football Watch is a website that gives you all the information for you hardcore football fans",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#EF6E73",
-    "theme_color": "#EF6E73",
+    "background_color": "#14274e",
+    "theme_color": "#14274e",
      "icons": [
     {
       "src": "/images/logo72.png",

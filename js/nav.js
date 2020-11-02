@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
     var page = window.location.hash.substr(1);
-    if (page == "") page = "home";
+    if (page == "") page = "teams";
     loadPage(page);
  
     function loadPage(page) {

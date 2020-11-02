@@ -19,17 +19,6 @@ p
   color: #26a69a;
 }
 
-.how-to-order li
-{
-  text-align: justify;
-  font-size: 20px;
-}
-
-.how-to-order h4
-{
-  text-align: center;
-}
-
 .footer-copyright a:link,
 .footer-copyright a:visited
 {
@@ -44,18 +33,12 @@ p
 .footer-copyright a:hover,
 .footer-copyright a:active
 {
-  color: #000;
+  color: #9ba4b4;
   border-bottom: 1px solid transparent;
 }
 
 @media only screen and (max-width : 1184px) 
 {
-  
-  .how-to-order li
-  {
-    font-size: 19.5px;
-  }
-  
   .home .card-content .card-title
   {
     font-size: 20px;
@@ -87,11 +70,6 @@ p
   .home .how-to h4
   {
     font-size: 28px;
-  }
-  
-  .how-to-order li
-  {
-    font-size: 19px;
   }
 }
 
@@ -129,22 +107,10 @@ p
   {
     font-size: 16x;
   }
-  
-  .how-to-order li
-  {
-    font-size: 18.5px;
-  }
-  
 }
 
 @media only screen and (max-width : 710px) 
 {
-  
-  .how-to-order li
-  {
-    font-size: 18px;
-  }
-  
   .location .card-content .card-title
   {
     font-size: 19.5px;
@@ -158,11 +124,6 @@ p
 
 @media only screen and (max-width : 620px) 
 {
-  .how-to-order li
-  {
-    font-size: 17.5px;
-  }
-  
   .home .card-content .card-title
   {
     font-size: 22px;
@@ -209,11 +170,6 @@ p
 
 @media only screen and (max-width : 432px) 
 {
-  .how-to-order li
-  {
-    font-size: 16px;
-  }
-  
   .home .card-content .card-title
   {
     font-size: 19px;
