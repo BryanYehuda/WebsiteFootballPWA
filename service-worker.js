@@ -1,31 +1,39 @@
-const CACHE_NAME = 'Football-Watch';
+const CACHE_NAME = 'football-watch';
 var urlsToCache = [
 	'/',
 	'/manifest.json',
-	'/nav.html',
-	'/index.html',
-	'/pages/teams.html',
-	'/pages/standings.html',
-	'/pages/favorites.html',
-	'/css/style.css',
-	'/css/materialize.css',
-	'/css/materialize.min.css',
-	'/js/materialize.js',
-	'/js/script.js',
-	'/js/init.js',
-	'/js/nav.js',
-	'/images/logo.png',
-	'/images/logo384.png',
-	'/images/logo256.png',
-	'/images/logo192.png',
-	'/images/logo144.png',
-	'/images/logo128.png',
-	'/images/logo96.png',
-	'/images/logo72.png',
+	'/src/nav.html',
+	'/src/index.html',
+	'/dist/images/logo.png',
+	'/dist/images/logo384.png',
+	'/dist/images/logo256.png',
+	'/dist/images/logo192.png',
+	'/dist/images/logo144.png',
+	'/dist/images/logo128.png',
+	'/dist/images/logo96.png',
+	'/dist/images/logo72.png',
+	'/dist/images/favicon.ico',
+	'/dist/style/materialize.css',
+	'/dist/style/materialize.min.css',
+	'/dist/script/materialize.js',
+	'/src/pages/teams.html',
+	'/src/pages/standings.html',
+	'/src/pages/favorites.html',
+	'/src/script/component/app-bar.js',
+	'/src/script/component/club-item.js',
+	'/src/script/component/club-list.js',
+	'/src/script/component/search-bar.js',
+	'/src/script/data/clubs.js',
+	'/src/script/data/data-source.js',
+	'/src/script/view/main.js',
+	'/src/style/style.css',
+	'/src/app.js',
+	'/src/init.js',
+	'/src/nav.js',
+	'/src/script.js',
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
 	'https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
-	'https://code.jquery.com/jquery-2.1.1.min.js',
-	'/images/favicon.ico'
+	'https://code.jquery.com/jquery-2.1.1.min.js'
 ];
 
 self.addEventListener("install", event => {
@@ -50,7 +58,7 @@ self.addEventListener('activate', function(event){
 			);
 		})
 	);
-})
+});
 
 self.addEventListener('fetch', function(event) {
 	event.respondWith(

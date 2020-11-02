@@ -9,17 +9,17 @@
         <title>Football Watch</title>
         <meta name="description" content="Football Watch is a website that gives you all the information for you hardcore football fans"/>
         <meta name="theme-color" content="#14274e"/>
-        <link rel="apple-touch-icon" href="/images/logo192.png">
-        <link rel="shortcut icon" href="/images/logo.png">
+        <link rel="apple-touch-icon" href="../dist/images/logo192.png">
+        <link rel="shortcut icon" href="../dist/images/logo.png">
         <!-- Meta End -->
         
         <!-- Link Start -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link rel="manifest" href="/manifest.json">
-        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+        <link href="../dist/style/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="../src/style/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="manifest" href="../manifest.json">
+        <link rel="shortcut icon" href="../dist/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../dist/images/favicon.ico" type="image/x-icon">
         <!-- Link End -->
     </head>
     
@@ -27,7 +27,7 @@
     <!-- Navbar Start -->
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo"><img class="responsive-img" src="images/logo.png" width="60" height="auto"></a>
+            <a id="logo-container" href="#" class="brand-logo"><img class="responsive-img" src="../dist/images/logo.png" width="60" height="auto"></a>
             <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
             <ul class="topnav right hide-on-med-and-down"></ul>
             <ul class="sidenav" id="nav-mobile"></ul>
@@ -38,6 +38,8 @@
 
     <!-- Content Start -->
     <div class="container" id="body-content"></div>
+    <search-bar></search-bar>
+    <club-list></club-list>
     <!-- Content End -->
        
     <!-- Footer Start -->
@@ -61,10 +63,11 @@
     
     <!-- Script Start -->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../dist/script/materialize.js"></script>
+    <script src="../src/app.js" type="module"></script>    
+    <script src="../src/init.js"></script>
+    <script src="../src/nav.js"></script>
+    <script src="../src/script.js"></script>
     <!-- Script End -->
         
   </body>
