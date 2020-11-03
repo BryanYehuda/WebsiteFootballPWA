@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // memuat konten halaman 
   var page = window.location.hash.substr(1);
-  if (page == "") page = "beranda";
+  if (page == "") page = "tim";
   loadPage(page);
   
   function loadPage(page) {

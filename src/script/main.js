@@ -68,27 +68,41 @@ var elPertandingan = () => {
     dataPertandingan = data;
     var matchdays = groupBy(data.matches, 'matchday');
 
-    html = '<center><h2>Pertandingan</h2></center>'
+    html = '<center><h2>Matches</h2></center>'
     for (const key in matchdays) {
       if (key != 'null') {
         html += `
-              <h5>Group stage - ${key} of 6</h5>
+              <h5>Group stage - ${key} of 38</h5>
               <div class="row">
             `
         matchdays[key].forEach(tanding => {
           html += `
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content card-match">
-              <div style="text-align: center"><h6>${dateToDMY(new Date(tanding.utcDate))}</h6></div>
-                <div class="col s10">${tanding.homeTeam.name}</div>
-                <div class="col s2">${tanding.score.fullTime.homeTeam}</div>
-                <div class="col s10">${tanding.awayTeam.name}</div>
-                <div class="col s2">${tanding.score.fullTime.awayTeam}</div>
-              </div>
+
+            <div class="col s12 m6">
+              <div class="card indigo darken-3">
+                <div class="card-content white-text">
+                  <span class="card-title center">Match date: ${dateToDMY(new Date(tanding.utcDate))}</span>
+                  <table class="responsive-table centered">
+                    <thead>
+                      <tr>
+                        <th>Home Team</th>
+                        <th>Score</th>
+                        <th>Away Team</th>
+                        <th>Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>${tanding.homeTeam.name}</td>
+                        <td>${tanding.score.fullTime.homeTeam}</td>
+                        <td>${tanding.awayTeam.name}</td>
+                        <td>${tanding.score.fullTime.awayTeam}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
             `
         });
         html += `
@@ -111,7 +125,7 @@ var elTim = () => {
     data = JSON.parse(str);
     
     dataTim = data
-    var html = '<center><h2>Teams</h2></center>'
+    var html = '<center><h2>Teams Available</h2></center>'
     html += '<div class="row">'
     data.teams.forEach(tim => {
       html += `
@@ -144,7 +158,7 @@ var elTimFavorit = () => {
 
   teams.then(data => {
     dataTim = data;
-    var html = '<center><h2>Favorite Teams</h2></center>'
+    var html = '<center><h2>My Favorite Teams</h2></center>'
     html += '<div class="row">'
     data.forEach(tim => {
       html += `
@@ -163,7 +177,7 @@ var elTimFavorit = () => {
     `
     })
 
-    if(data.length == 0) html += '<h6 class="Kamu tidak memiliki tim favorit!</6>'
+    if(data.length == 0) html += '<h6 class="You have not choose a favorite team yet!</6>'
 
     html += "</div>"
     let doc = document.getElementById('main-content');
@@ -190,10 +204,10 @@ var insertTeam = (tim) => {
     store.put(tim)
     return tx.complete;
   }).then(() => {
-    M.toast({ html: `${tim.name} berhasil disimpan!` })
-    console.log('Pertandingan berhasil disimpan');
+    M.toast({ html: `${tim.name} is added to favorite!` })
+    console.log('Match is added to favorite!');
   }).catch(err => {
-    console.error('Pertandingan gagal disimpan', err);
+    console.error('Match failed to be added to favorite', err);
   });
 }
 
@@ -204,7 +218,7 @@ var deleteTeam = (idTim) => {
     store.delete(idTim);
     return tx.complete;
   }).then(() => {
-    M.toast({ html: 'Tim Sudah Di Hapus!' });
+    M.toast({ html: 'This team has been deleted!' });
     elTimFavorit();
   }).catch(err => {
     console.error('Error: ', err);
@@ -227,7 +241,7 @@ var insertTeamListener = idTim => {
 }
 
 var deleteTeamListener = idTim => {
-  var c = confirm("Yakin Mau Hapus?")
+  var c = confirm("Are you sure you want to delete this team?")
   if (c == true) {
     deleteTeam(idTim);
   }
@@ -235,7 +249,7 @@ var deleteTeamListener = idTim => {
 
 var showLoader = () => {
   var html = `<div class="preloader-wrapper medium active">
-              <div class="spinner-layer spinner-green-only">
+              <div class="spinner-layer spinner-blue-only">
                 <div class="circle-clipper left">
                   <div class="circle"></div>
                 </div><div class="gap-patch">
