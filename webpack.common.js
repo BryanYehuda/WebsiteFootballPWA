@@ -30,18 +30,6 @@ module.exports = {
        new HtmlWebpackPlugin({
            template: "./src/nav.html",
            filename: "nav.html"
-       }),
-       new HtmlWebpackPlugin({
-           template: "./src/pages/favorites.html",
-           filename: "favorites.html"
-       }),
-       new HtmlWebpackPlugin({
-           template: "./src/pages/standings.html",
-           filename: "standings.html"
-       }),
-       new HtmlWebpackPlugin({
-           template: "./src/pages/teams.html",
-           filename: "teams.html"
        })
    ]
 }

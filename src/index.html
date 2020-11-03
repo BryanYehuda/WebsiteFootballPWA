@@ -35,12 +35,16 @@
         </div>
     </nav>
     <!-- Navbar End -->
-
-    <!-- Content Start -->
-    <div class="container" id="body-content"></div>
-    <search-bar></search-bar>
-    <club-list></club-list>
-    <!-- Content End -->
+        
+    <!-- Isi Konten Dinamis -->
+    <div class="container" id="body-content">
+        <h5 class="header" id="header-title"></h5>
+        <div class="row">
+            <div class="center-align" id="loader"></div>
+            <div class="col s12 m12" id="main-content"></div>
+        </div>
+    </div>
+  <!-- Akhir Isi Konten -->
        
     <!-- Footer Start -->
     <footer class="page-footer">
@@ -63,10 +67,13 @@
     
     <!-- Script Start -->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../dist/script/materialize.js"></script>  
-    <script src="../src/init.js"></script>
-    <script src="../src/nav.js"></script>
-    <script src="../src/script.js"></script>
+    <script src="../dist/script/materialize.js"></script>
+    <script type="text/javascript" src="script/api.js"></script>
+    <script type="text/javascript" src="script/idb.js"></script>
+    <script type="text/javascript" src="script/init.js"></script>
+    <script type="text/javascript" src="script/main.js"></script>
+    <script type="text/javascript" src="script/nav.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
     <!-- Script End -->
         
   </body>

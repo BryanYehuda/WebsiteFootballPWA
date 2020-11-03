@@ -9,6 +9,7 @@ var urlsToCache = [
 	'/webpack.prod.js',
 	'/src/nav.html',
 	'/src/index.html',
+	'/src/app.js',
 	'/dist/images/logo.png',
 	'/dist/images/logo384.png',
 	'/dist/images/logo256.png',
@@ -21,27 +22,19 @@ var urlsToCache = [
 	'/dist/style/materialize.css',
 	'/dist/style/materialize.min.css',
 	'/dist/script/materialize.js',
+	'/dist/script/materialize.min.js',
 	'/dist/bundle.js',
-	'/dist/favorites.html',
 	'/dist/index.html',
 	'/dist/nav.html',
-	'/dist/standings.html',
-	'/dist/teams.html',
-	'/src/pages/teams.html',
-	'/src/pages/standings.html',
-	'/src/pages/favorites.html',
-	'/src/script/component/app-bar.js',
-	'/src/script/component/club-item.js',
-	'/src/script/component/club-list.js',
-	'/src/script/component/search-bar.js',
-	'/src/script/data/clubs.js',
-	'/src/script/data/data-source.js',
-	'/src/script/view/main.js',
+	'/src/index.html',
+	'/src/nav.html',
+	'/src/script/api.js',
+	'/src/script/idb.js',
+	'/src/script/init.js',
+	'/src/script/main.js',
+	'/src/script/nav.js',
+	'/src/script/script.js',
 	'/src/style/style.css',
-	'/src/app.js',
-	'/src/init.js',
-	'/src/nav.js',
-	'/src/script.js',
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
 	'https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
 	'https://code.jquery.com/jquery-2.1.1.min.js'
@@ -69,7 +62,7 @@ self.addEventListener('activate', function(event){
 			);
 		})
 	);
-});
+})
 
 self.addEventListener('fetch', function(event) {
 	event.respondWith(
@@ -85,4 +78,3 @@ self.addEventListener('fetch', function(event) {
 		})
 	);
 });
-
