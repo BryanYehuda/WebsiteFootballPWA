@@ -6,6 +6,8 @@
     "display": "standalone",
     "background_color": "#14274e",
     "theme_color": "#14274e",
+    "gcm_sender_id": "103953800507",
+    "applicationServerKey": "AAAAX9lZ8G8:APA91bGYX8hrymI5jdaCJ71l4sTBweVyMBABKX4FjTRoTYCe5qEJciA42V3RuJSvP6iciBtIIBP9NbswmcR_yiYp0kvGF8ot7XylGFD9pHZzsAAIRzA3OaRNvp1Ubr0xkFtWkf9YadrU",
      "icons": [
     {
       "src": "/dist/images/logo72.png",
