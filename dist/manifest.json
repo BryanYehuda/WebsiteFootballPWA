@@ -1,0 +1,61 @@
+{
+    "name": "Football Watch - Watch Football Anywhere",
+    "short_name": "Football Watch",
+    "description": "Football Watch is a website that gives you all the information for you hardcore football fans",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#14274e",
+    "theme_color": "#14274e",
+    "gcm_sender_id": "103953800507",
+    "applicationServerKey": "AAAAX9lZ8G8:APA91bGYX8hrymI5jdaCJ71l4sTBweVyMBABKX4FjTRoTYCe5qEJciA42V3RuJSvP6iciBtIIBP9NbswmcR_yiYp0kvGF8ot7XylGFD9pHZzsAAIRzA3OaRNvp1Ubr0xkFtWkf9YadrU",
+     "icons": [
+    {
+      "src": "/dist/images/logo72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dist/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
