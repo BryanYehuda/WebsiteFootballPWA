@@ -6,7 +6,7 @@ var urlKlasemen = `${base_url}competitions/${LEAGUE_ID}/standings?standingType=T
 var urlPertandingan = `${base_url}competitions/${LEAGUE_ID}/matches`
 var urlTim = `${base_url}competitions/${LEAGUE_ID}/teams`
 
-var fetchApi = url => {
+const fetchApi = url => {
   return fetch(url, {
     headers: {
       'X-Auth-Token': API_KEY
@@ -24,9 +24,76 @@ var status = response => {
   }
 }
 
-var json = response => {
-  return response.json();
+function getAllStandings() {
+    if ("caches" in window) {
+        caches.match(urlKlasemen).then(function (response) {
+            if (response) {
+                response.clone();
+                response.json().then(function (data) {
+                    console.log("Competition Data: " + data);
+                    return response.data;
+                })
+            }
+        })
+    }
+
+    fetchApi(urlKlasemen)
+        .then(data => {
+            return response.data;
+        })
+        .catch(error => {
+            console.log(error)
+        })
 }
+
+function getAllMatches() {
+    if ("caches" in window) {
+        caches.match(urlTim).then(function (response) {
+            if (response) {
+                response.clone();
+                response.json().then(function (data) {
+                    console.log("Competition Data: " + data);
+                    return response.data;
+                })
+            }
+        })
+    }
+
+    fetchApi(urlTim)
+        .then(data => {
+            return response.data;
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+function getAllTeams() {
+    if ("caches" in window) {
+        caches.match(urlPertandingan).then(function (response) {
+            if (response) {
+                response.clone();
+                response.json().then(function (data) {
+                    console.log("Competition Data: " + data);
+                    return response.data;
+                })
+            }
+        })
+    }
+
+    fetchApi(urlPertandingan)
+        .then(data => {
+            return response.data;
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+
+//var json = response => {
+//  return response.json();
+//}
 
 var error = error => {
   console.log("Error: " + error);
@@ -35,20 +102,23 @@ var error = error => {
 var getKlasemen = () => {
   var fetK = fetchApi(urlKlasemen)
     .then(status)
-    .then(json);
+    .then(getAllStandings)
+    //.then(json);
   return fetK;
 }
 
 var getPertandingan = () => {
   var fetP = fetchApi(urlPertandingan)
     .then(status)
-    .then(json);
+    .then(getAllMatches)
+    //.then(json);
   return fetP;
 }
 
 var getTim = () => {
   var fetT = fetchApi(urlTim)
     .then(status)
-    .then(json);
+    .then(getAllTeams)
+    //.then(json);
   return fetT;
 }

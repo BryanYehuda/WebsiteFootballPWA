@@ -54,17 +54,22 @@ self.addEventListener('activate', function(event){
 	);
 })
 
-self.addEventListener('fetch', function(event) {
-	event.respondWith(
-		caches.match(event.request, {cacheName:CACHE_NAME})
-		.then(function(response) {
-			if(response){
-				console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
-				return response;
-			}
-			
-			console.log("ServiceWorker: Memuat aset dari server: ", event.request.url);
-			return fetch(event.request);
-		})
-	);
+self.addEventListener("fetch", function(event) {
+    const base_url = "https://api.football-data.org/v2/";
+    if (event.request.url.indexOf(base_url) > -1) {
+        event.respondWith(
+            caches.open(CACHE_NAME).then(function(cache) {
+                return fetch(event.request).then(function(response) {
+                    cache.put(event.request.url, response.clone());
+                    return response;
+                })
+            })
+        );
+    } else {
+        event.respondWith(
+            caches.match(event.request, {'ignoreSearch': true}).then(function(response) {
+                return response || fetch (event.request);
+            })
+        )
+    }
 });
