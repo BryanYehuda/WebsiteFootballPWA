@@ -6,6 +6,9 @@ var elKlasemen = () => {
   var standings = getKlasemen()
   standings.then(data => {
 
+    var str = JSON.stringify(data).replace(/http:/g, 'https:');
+    data = JSON.parse(str);
+
     var html = '<center><h2>Standings Right Now</h2></center>'
     data.standings.forEach(klass => {
       var detail = ''
@@ -118,6 +121,8 @@ var elTim = () => {
   var teams = getTim()
 
   teams.then(data => {
+    var str = JSON.stringify(data).replace(/http:/g, 'https:');
+    data = JSON.parse(str);
     
     dataTim = data
     var html = '<center><h2>Teams Available</h2></center>'
