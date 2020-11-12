@@ -2,7 +2,7 @@ const API_KEY = 'a65c4ce8fc964aa6ab9618a0da2629db'
 const LEAGUE_ID = 2021
 
 var base_url = "https://api.football-data.org/v2/";
-var urlKlasemen = `${base_url}competitions/${LEAGUE_ID}/standings?standingType=TOTAL`
+var urlKlasemen = `${base_url}competitions/${LEAGUE_ID}/standings`
 var urlPertandingan = `${base_url}competitions/${LEAGUE_ID}/matches`
 var urlTim = `${base_url}competitions/${LEAGUE_ID}/teams`
 

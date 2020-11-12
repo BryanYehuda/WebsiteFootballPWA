@@ -2,9 +2,14 @@ var dataPertandingan;
 var dataTim;
 
 var elKlasemen = () => {
-  showLoader();
-  var standings = getKlasemen()
-  standings.then(data => {
+  
+    var standings = getKlasemen()
+    if ('caches' in window) {
+    caches.match(urlKlasemen).then(function(response) {
+      if (response) {
+        response.json().then(function (data) {
+          var articlesHTML = "";
+          standings.then(data => {
 
     var str = JSON.stringify(data).replace(/http:/g, 'https:');
     data = JSON.parse(str);
@@ -57,9 +62,12 @@ var elKlasemen = () => {
     });
     let doc = document.getElementById('main-content');
     doc.innerHTML = html;
-    hideLoader()
+    
+    })
   })
 }
+})
+}}
 
 var elPertandingan = () => {
   showLoader()
