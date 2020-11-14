@@ -1,78 +1,133 @@
-var dataPertandingan;
+let dataPertandingan;
 var dataTim;
 
 var elKlasemen = () => {
-  
-    var standings = getKlasemen()
-    if ('caches' in window) {
-    caches.match(urlKlasemen).then(function(response) {
-      if (response) {
-        response.json().then(function (data) {
-          var articlesHTML = "";
-          standings.then(data => {
+  showLoader();
 
-    var str = JSON.stringify(data).replace(/http:/g, 'https:');
-    data = JSON.parse(str);
+  if('caches' in window){
+      caches.match(urlKlasemen)
+      .then(respon=>{
+        if(respon){
+          console.log('get data in cache')
+          respon.json().then(data =>{
+                var str = JSON.stringify(data).replace(/http:/g, 'https:');
+                data = JSON.parse(str);
+                
+                var html = '<center><h2>Standings Right Now</h2></center>'
+                var detail = ''
+                data.standings[0].table.forEach(dataTim => {
+                    detail += `<tr>
+                        <td>${dataTim.position}</td>
+                        <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}"></td>
+                        <td>${dataTim.team.name}</td>
+                        <td>${dataTim.playedGames}</td>
+                        <td>${dataTim.won}</td>
+                        <td>${dataTim.draw}</td>
+                        <td>${dataTim.lost}</td>
+                        <td>${dataTim.goalsFor}</td>
+                        <td>${dataTim.goalsAgainst}</td>
+                        <td>${dataTim.goalDifference}</td>
+                        <td>${dataTim.points}</td>
+                      </tr>`
+                  })
 
-    var html = '<center><h2>Standings Right Now</h2></center>'
-    data.standings.forEach(klass => {
-      var detail = ''
-      klass.table.forEach(dataTim => {
-        detail += `<tr>
-            <td>${dataTim.position}</td>
-            <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}"></td>
-            <td>${dataTim.team.name}</td>
-            <td>${dataTim.playedGames}</td>
-            <td>${dataTim.won}</td>
-            <td>${dataTim.draw}</td>
-            <td>${dataTim.lost}</td>
-            <td>${dataTim.goalsFor}</td>
-            <td>${dataTim.goalsAgainst}</td>
-            <td>${dataTim.goalDifference}</td>
-            <td>${dataTim.points}</td>
-          </tr>`
-      })
+                  html += `
+                    <div class="col s12 m12">
+                      <div class="card">
+                        <div class="card-content">
+                          <table class="responsive-table highlight centered">
+                            <thead>
+                              <tr>
+                                <th>Position</th>
+                                <th>Team Logo</th>
+                                <th>Team Name</th>
+                                <th>Played</th>
+                                <th>Won</th>
+                                <th>Draw</th>
+                                <th>Lost</th>
+                                <th>GF</th>
+                                <th>GA</th>
+                                <th>GD</th>
+                                <th>Points</th>
+                              </tr>
+                            </thead>
+                            <tbody>` + detail + `</tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  `
+                let doc = document.getElementById('main-content');
+                doc.innerHTML = html;
+                hideLoader()
+            })
+        }
+    })
+  } else{
+    const standings = getKlasemen()
+    standings.then(data => {
+      const str = JSON.stringify(data).replace(/http:/g, 'https:');
+      data = JSON.parse(str);
+      console.log(data)
 
-      html += `
-        <div class="col s12 m12">
-          <div class="card">
-            <div class="card-content">
-              <table class="responsive-table highlight centered">
-                <thead>
-                  <tr>
-                    <th>Position</th>
-                    <th>Team Logo</th>
-                    <th>Team Name</th>
-                    <th>Played</th>
-                    <th>Won</th>
-                    <th>Draw</th>
-                    <th>Lost</th>
-                    <th>GF</th>
-                    <th>GA</th>
-                    <th>GD</th>
-                    <th>Points</th>
-                  </tr>
-                </thead>
-                <tbody>` + detail + `</tbody>
-              </table>
+      var html = '<center><h2>Standings Right Now</h2></center>'
+      data.standings.forEach(klass => {
+        var detail = ''
+        klass.table.forEach(dataTim => {
+          detail += `<tr>
+              <td>${dataTim.position}</td>
+              <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}"></td>
+              <td>${dataTim.team.name}</td>
+              <td>${dataTim.playedGames}</td>
+              <td>${dataTim.won}</td>
+              <td>${dataTim.draw}</td>
+              <td>${dataTim.lost}</td>
+              <td>${dataTim.goalsFor}</td>
+              <td>${dataTim.goalsAgainst}</td>
+              <td>${dataTim.goalDifference}</td>
+              <td>${dataTim.points}</td>
+            </tr>`
+        })
+
+        html += `
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-content">
+                <table class="responsive-table highlight centered">
+                  <thead>
+                    <tr>
+                      <th>Position</th>
+                      <th>Team Logo</th>
+                      <th>Team Name</th>
+                      <th>Played</th>
+                      <th>Won</th>
+                      <th>Draw</th>
+                      <th>Lost</th>
+                      <th>GF</th>
+                      <th>GA</th>
+                      <th>GD</th>
+                      <th>Points</th>
+                    </tr>
+                  </thead>
+                  <tbody>` + detail + `</tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-      `
-    });
-    let doc = document.getElementById('main-content');
-    doc.innerHTML = html;
-    
+        `
+      });
+      let doc = document.getElementById('main-content');
+      doc.innerHTML = html;
+      hideLoader()
     })
-  })
+  }
 }
-})
-}}
 
 var elPertandingan = () => {
   showLoader()
   var matches = getPertandingan()
   matches.then(data => {
+    console.log(data)
     dataPertandingan = data;
     var matchdays = groupBy(data.matches, 'matchday');
 
