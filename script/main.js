@@ -63,7 +63,7 @@ var elKlasemen = () => {
             })
         }
     })
-  } else{
+  } 
     const standings = getKlasemen()
     standings.then(data => {
       const str = JSON.stringify(data).replace(/http:/g, 'https:');
@@ -120,100 +120,76 @@ var elKlasemen = () => {
       doc.innerHTML = html;
       hideLoader()
     })
-  }
-}
-
-var elPertandingan = () => {
-  showLoader()
-  var matches = getPertandingan()
-  matches.then(data => {
-    console.log(data)
-    dataPertandingan = data;
-    var matchdays = groupBy(data.matches, 'matchday');
-
-    html = '<center><h2>Matches</h2></center>'
-    for (const key in matchdays) {
-      if (key != 'null') {
-        html += `
-              <h5>Group stage - ${key} of 38</h5>
-              <div class="row">
-            `
-        matchdays[key].forEach(tanding => {
-          html += `
-
-            <div class="col s12 m6">
-              <div class="card indigo darken-3">
-                <div class="card-content white-text">
-                  <span class="card-title center">Match date: ${dateToDMY(new Date(tanding.utcDate))}</span>
-                  <table class="responsive-table centered">
-                    <thead>
-                      <tr>
-                        <th>Home Team</th>
-                        <th>Score</th>
-                        <th>Away Team</th>
-                        <th>Score</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>${tanding.homeTeam.name}</td>
-                        <td>${tanding.score.fullTime.homeTeam}</td>
-                        <td>${tanding.awayTeam.name}</td>
-                        <td>${tanding.score.fullTime.awayTeam}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            `
-        });
-        html += `
-        </div>`
-      }
-
-    }
-    let doc = document.getElementById('main-content');
-    doc.innerHTML = html;
-    hideLoader()
-  })
 }
 
 var elTim = () => {
-  showLoader()
-  var teams = getTim()
-
-  teams.then(data => {
-    var str = JSON.stringify(data).replace(/http:/g, 'https:');
-    data = JSON.parse(str);
+  showLoader();
+  
+  if('caches' in window){
+      caches.match(urlTim)
+      .then(respon=>{
+        if(respon){
+          console.log('get data in cache')
+          respon.json().then(data =>{
+                var str = JSON.stringify(data).replace(/http:/g, 'https:');
+                data = JSON.parse(str);
     
-    dataTim = data
-    var html = '<center><h2>Teams Available</h2></center>'
-    html += '<div class="row">'
-    data.teams.forEach(tim => {
-      html += `
-      <div class="col s12 m6 l6">
-        <div class="card">
-          <div class="card-content">
-            <div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
-            <div class="center flow-text">${tim.name}</div>
-            <div class="center">${tim.area.name}</div>
-          </div>
-          <div class="card-action right-align">
-              <a class="waves-effect waves-light btn-small indigo darken-4" onclick="insertTeamListener(${tim.id})">Add to Favorites</a>
-          </div>
-        </div>
-      </div>
-    `
+				var html = '<center><h2>Teams Available</h2></center>'
+				html += '<div class="row">'
+				data.teams.forEach(tim => {
+				  html += `
+				  <div class="col s12 m6 l6">
+					<div class="card">
+					  <div class="card-content">
+						<div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
+						<div class="center flow-text">${tim.name}</div>
+						<div class="center">${tim.area.name}</div>
+					  </div>
+					  <div class="card-action right-align">
+						  <a class="waves-effect waves-light btn-small indigo darken-4" onclick="insertTeamListener(${tim.id})">Add to Favorites</a>
+					  </div>
+					</div>
+				  </div>
+				`
+				})
+				html += "</div>"
+				let doc = document.getElementById('main-content');
+				doc.innerHTML = html;
+				hideLoader()
+			})
+		}
+	})
+  } 
+	const teams = getTim()
+    teams.then(data => {
+      const str = JSON.stringify(data).replace(/http:/g, 'https:');
+      data = JSON.parse(str);
+      console.log(data)
+	  
+	  var html = '<center><h2>Teams Available</h2></center>'
+      html += '<div class="row">'
+      data.teams.forEach(tim => {
+		html += `
+		<div class="col s12 m6 l6">
+		  <div class="card">
+		    <div class="card-content">
+		      <div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
+		      <div class="center flow-text">${tim.name}</div>
+		      <div class="center">${tim.area.name}</div>
+		    </div>
+		    <div class="card-action right-align">
+				<a class="waves-effect waves-light btn-small indigo darken-4" onclick="insertTeamListener(${tim.id})">Add to Favorites</a>
+		    </div>
+		  </div>
+		</div>
+      `
+      })
+      html += "</div>"
+      let doc = document.getElementById('main-content');
+      doc.innerHTML = html;
+      hideLoader()
     })
-    html += "</div>"
-    let doc = document.getElementById('main-content');
-    doc.innerHTML = html;
-    hideLoader()
-  })
 }
-
-
 
 var elTimFavorit = () => {
   showLoader()
@@ -249,15 +225,12 @@ var elTimFavorit = () => {
   })
 }
 
-// database operations
 var dbx = idb.open('football', 1, upgradeDb => {
   switch (upgradeDb.oldVersion) {
     case 0:
       upgradeDb.createObjectStore('tim', { 'keyPath': 'id' })
   }
 });
-
-
 
 var insertTeam = (tim) => {
   dbx.then(db => {
@@ -295,8 +268,6 @@ var getTimfav = () => {
     return store.getAll();
   })
 }
-
-
 
 var insertTeamListener = idTim => {
   var tim = dataTim.teams.filter(el => el.id == idTim)[0]

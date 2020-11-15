@@ -3,7 +3,6 @@ const LEAGUE_ID = 2021
 
 var base_url = "https://api.football-data.org/v2/";
 var urlKlasemen = `${base_url}competitions/${LEAGUE_ID}/standings`
-var urlPertandingan = `${base_url}competitions/${LEAGUE_ID}/matches`
 var urlTim = `${base_url}competitions/${LEAGUE_ID}/teams`
 
 var fetchApi = url => {
@@ -37,13 +36,6 @@ var getKlasemen = () => {
     .then(status)
     .then(json);
   return fetK;
-}
-
-var getPertandingan = () => {
-  var fetP = fetchApi(urlPertandingan)
-    .then(status)
-    .then(json);
-  return fetP;
 }
 
 var getTim = () => {

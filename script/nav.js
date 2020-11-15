@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   function loadPage(page) {
     if(page == 'beranda') elKlasemen()
-    if(page == 'pertandingan') elPertandingan()
     if(page == 'tim') elTim()
     if(page == 'timfavorit') elTimFavorit()
   }
