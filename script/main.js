@@ -137,19 +137,20 @@ var elTim = () => {
 				var html = '<center><h2>Teams Available</h2></center>'
 				html += '<div class="row">'
 				data.teams.forEach(tim => {
-				  html += `
-				  <div class="col s12 m6 l6">
-					<div class="card">
-					  <div class="card-content">
-						<div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
-						<div class="center flow-text">${tim.name}</div>
-						<div class="center">${tim.area.name}</div>
-					  </div>
-					  <div class="card-action right-align">
-						  <a class="waves-effect waves-light btn-small indigo darken-4" onclick="insertTeamListener(${tim.id})">Add to Favorites</a>
-					  </div>
-					</div>
-				  </div>
+                  const strTeam = JSON.stringify(tim)
+                  html += `
+                  <div class="col s12 m6 l6">
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
+                        <div class="center flow-text">${tim.name}</div>
+                        <div class="center">${tim.area.name}</div>
+                      </div>
+                      <div class="card-action right-align">
+                        <a class="waves-effect waves-light btn-small indigo darken-4" onclick='insertTeamListener(${strTeam})'>Add to Favorites</a>
+                      </div>
+                    </div>
+                  </div>
 				`
 				})
 				html += "</div>"
@@ -269,8 +270,7 @@ var getTimfav = () => {
   })
 }
 
-var insertTeamListener = idTim => {
-  var tim = dataTim.teams.filter(el => el.id == idTim)[0]
+var insertTeamListener = tim => {
   insertTeam(tim);
 }
 

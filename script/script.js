@@ -34,7 +34,8 @@
             navigator.serviceWorker.getRegistration().then(reg => {
             
               reg.pushManager.subscribe({
-                userVisibleOnly: true
+                  userVisibleOnly: true,
+                  applicationServerKey: "BJuXZgVnfdo6lIqPDyphqyu56kwAQ4RW6xFHTT8GQppxuPRnkMVRkQx_GGTQG4AfJEYHpRB9Q78KHq44MsakEXM"
               }).then(sub => {
                 console.log('Berhasil melakukan subscribe dengan endpoint:' + sub.endpoint);
                 console.log("p256dh: " + btoa(String.fromCharCode.apply(null, new Uint8Array(sub.getKey('p256dh')))));
