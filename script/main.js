@@ -170,6 +170,7 @@ var elTim = () => {
 	  var html = '<center><h2>Teams Available</h2></center>'
       html += '<div class="row">'
       data.teams.forEach(tim => {
+        const strTeam = JSON.stringify(tim)
 		html += `
 		<div class="col s12 m6 l6">
 		  <div class="card">
@@ -179,7 +180,7 @@ var elTim = () => {
 		      <div class="center">${tim.area.name}</div>
 		    </div>
 		    <div class="card-action right-align">
-				<a class="waves-effect waves-light btn-small indigo darken-4" onclick="insertTeamListener(${tim.id})">Add to Favorites</a>
+				<a class="waves-effect waves-light btn-small indigo darken-4" onclick='insertTeamListener(${strTeam})'>Add to Favorites</a>
 		    </div>
 		  </div>
 		</div>
@@ -226,11 +227,9 @@ var elTimFavorit = () => {
   })
 }
 
-var dbx = idb.open('football', 1, upgradeDb => {
-  switch (upgradeDb.oldVersion) {
-    case 0:
-      upgradeDb.createObjectStore('tim', { 'keyPath': 'id' })
-  }
+const dbx = idb.open('football', 1, upgradeDb => {
+  upgradeDb.createObjectStore('tim', { 'keyPath': 'id'
+  })
 });
 
 var insertTeam = (tim) => {
