@@ -2,7 +2,7 @@ var webPush = require('web-push');
  
 const vapidKeys = {
    "publicKey": "BJuXZgVnfdo6lIqPDyphqyu56kwAQ4RW6xFHTT8GQppxuPRnkMVRkQx_GGTQG4AfJEYHpRB9Q78KHq44MsakEXM",
-   "privateKey": "D8s-5D6Flhf39KkBDy7GYfMro9I1uGOJTvlZxh5tEBg"
+   "privateKey": "OPPoG6urqeTfF3aecc0OqP54eJHREzDQPZ7EsaoEUuw"
 };
  
  
@@ -12,13 +12,13 @@ webPush.setVapidDetails(
    vapidKeys.privateKey
 )
 var pushSubscription = {
-   "endpoint": "https://fcm.googleapis.com/fcm/send/eFRS7mn50yg:APA91bE-qtbS2ByO38dau3U4V2Py2MHR2ICfwCqHddctVbnC4YAPBXV9Muc6iOXag0pEDPnwnl_oJkOvexisj7GEQH6dGxcmOyYPrEzU49Mn6ETyqPNBfRiH-axNl6_1uBlU1qjUMVRL",
+   "endpoint": "https://fcm.googleapis.com/fcm/send/e5Xlg4SVt6o:APA91bETjWIT29mYh1oIC4cHi1kvhRmncL6M05s-rygdLg-oyIJyMZHD71fRzE8l2DQcFM4xnfsQlh3Y20rcCKxqB3E_Dxk_o34QYyirrKEo6y3bfC3m9yOaNBIx-aQ_tHEifN1cd_oT",
    "keys": {
-       "p256dh": "BCKktLWOu0Yd/M38jsdCiB4LZDa9e8Jx3aIS14LHYpfhmwM32cM3EUvcFwbr2V9eSb0uCnsep76EF1r3196P354=",
-       "auth": "3eaYhKRGLhC6avfLeinSPg=="
+       "p256dh": "BO4lZK4vRjRwsdGQMnV8fa7BhOQrN1QH1fKEdwOdG5OFHlBFGcj67OmI3QCjqAU5o/KIi6qNS2waHQyWbTlUtCI=",
+       "auth": "9gVOuM8EQFa12S/qAXjU4w=="
    }
 };
-var payload = 'Selamat! Aplikasi Anda sudah dapat menerima push notifikasi!';
+var payload = 'Welcome to Football Watch!';
  
 var options = {
    gcmAPIKey: '411668443247',
