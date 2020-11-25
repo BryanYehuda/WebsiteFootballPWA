@@ -1,8 +1,8 @@
 var webPush = require('web-push');
  
 const vapidKeys = {
-   "publicKey": "BJuXZgVnfdo6lIqPDyphqyu56kwAQ4RW6xFHTT8GQppxuPRnkMVRkQx_GGTQG4AfJEYHpRB9Q78KHq44MsakEXM",
-   "privateKey": "OPPoG6urqeTfF3aecc0OqP54eJHREzDQPZ7EsaoEUuw"
+   "publicKey": "BGuFovLk-PEOCnx1Q1PKhwZc86aaVSIhopcSfr_ycvc6irGqAv-31EIofflb2yz6gpZaTWxVNoZtKDfvninu8Xc",
+   "privateKey": "WwZaE8H_sKndMbsr4QYR0RJ5LhSngC2IDj3ogJymDvI"
 };
  
  
@@ -12,10 +12,10 @@ webPush.setVapidDetails(
    vapidKeys.privateKey
 )
 var pushSubscription = {
-   "endpoint": "https://fcm.googleapis.com/fcm/send/e5Xlg4SVt6o:APA91bETjWIT29mYh1oIC4cHi1kvhRmncL6M05s-rygdLg-oyIJyMZHD71fRzE8l2DQcFM4xnfsQlh3Y20rcCKxqB3E_Dxk_o34QYyirrKEo6y3bfC3m9yOaNBIx-aQ_tHEifN1cd_oT",
+   "endpoint": "https://fcm.googleapis.com/fcm/send/fux_DviBfak:APA91bFWQ13k67PpvwyS49bRytSZw-NAfDLYvpZKI6AxCd-LqbRwoqthd8ytEfaMZBGHB30p54ihtJzWwovqc9MvlDwU-eURhC5KdoWE_jUmlKKy_5UGzXxwVyiWi3mN98uZZ_F0eAQK",
    "keys": {
-       "p256dh": "BO4lZK4vRjRwsdGQMnV8fa7BhOQrN1QH1fKEdwOdG5OFHlBFGcj67OmI3QCjqAU5o/KIi6qNS2waHQyWbTlUtCI=",
-       "auth": "9gVOuM8EQFa12S/qAXjU4w=="
+       "p256dh": "BLOrMdKk/Hm4sOXZorjZpKM7UXT7QNWBs5qDhBkpcZ6Plyy9LopcPWioEEAh58OyjgPGjtQvHNL45DF/RDgrAMU=",
+       "auth": "e9uPIb5O8Ru2zh0eGZdJdQ=="
    }
 };
 var payload = 'Welcome to Football Watch!';
