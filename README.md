@@ -1,4 +1,4 @@
-# WebsiteResepMakananBFWD
+# WebsiteFootballPWA
 **Ini adalah website Football Watch yang dibuat untuk submisi kedua kelas "Belajar Membuat Progressive Web Apps"**  
 
 ### Di kelas ini kita belajar untuk memulai membuat sebuah website PWA lebih lanjut dengan menggunakan API, Dynamic Caching, IDB, Backend, dan Push Notification menggunakan Firebase       
