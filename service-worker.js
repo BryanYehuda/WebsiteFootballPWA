@@ -1,5 +1,5 @@
 const CACHE_NAME = 'football-watch';
-var urlsToCache = [
+const urlsToCache = [
 	'/',
 	'/manifest.json',
 	'/nav.html',
@@ -24,6 +24,7 @@ var urlsToCache = [
 	'/script/main.js',
 	'/script/nav.js',
 	'/script/script.js',
+	'/script/uint.js',
 	'/style/style.css',
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
 	'https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
@@ -31,9 +32,11 @@ var urlsToCache = [
 ];
 
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  )
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(function (cache) {
+            return cache.addAll(urlsToCache);
+        })
+    );
 });
 
 self.addEventListener("fetch", event => {

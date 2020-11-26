@@ -13,12 +13,12 @@ var elKlasemen = () => {
                 var str = JSON.stringify(data).replace(/http:/g, 'https:');
                 data = JSON.parse(str);
                 
-                var html = '<center><h2>Standings Right Now</h2></center>'
+                var html = '<div class="col l12 s12 center-align"><h2>Standings Right Now</h2></div>'
                 var detail = ''
                 data.standings[0].table.forEach(dataTim => {
                     detail += `<tr>
                         <td>${dataTim.position}</td>
-                        <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}"></td>
+                        <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}" alt="Team Logo"></td>
                         <td>${dataTim.team.name}</td>
                         <td>${dataTim.playedGames}</td>
                         <td>${dataTim.won}</td>
@@ -70,13 +70,13 @@ var elKlasemen = () => {
       data = JSON.parse(str);
       console.log(data)
 
-      var html = '<center><h2>Standings Right Now</h2></center>'
+      var html = '<div class="col l12 s12 center-align"><h2>Standings Right Now</h2></div>'
       data.standings.forEach(klass => {
         var detail = ''
         klass.table.forEach(dataTim => {
           detail += `<tr>
               <td>${dataTim.position}</td>
-              <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}"></td>
+              <td><img class="responsive-img" width="30" height="30" src="${ dataTim.team.crestUrl}" alt="Team Logo"></td>
               <td>${dataTim.team.name}</td>
               <td>${dataTim.playedGames}</td>
               <td>${dataTim.won}</td>
@@ -134,7 +134,7 @@ var elTim = () => {
                 var str = JSON.stringify(data).replace(/http:/g, 'https:');
                 data = JSON.parse(str);
     
-				var html = '<center><h2>Teams Available</h2></center>'
+				var html = '<div class="col l12 s12 center-align"><h2>Teams Available</h2></div>'
 				html += '<div class="row">'
 				data.teams.forEach(tim => {
                   const strTeam = JSON.stringify(tim)
@@ -142,7 +142,7 @@ var elTim = () => {
                   <div class="col s12 m6 l6">
                     <div class="card">
                       <div class="card-content">
-                        <div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
+                        <div class="center"><img width="64" height="64" src="${tim.crestUrl}" alt="Team Logo"></div>
                         <div class="center flow-text">${tim.name}</div>
                         <div class="center">${tim.area.name}</div>
                       </div>
@@ -167,7 +167,7 @@ var elTim = () => {
       data = JSON.parse(str);
       console.log(data)
 	  
-	  var html = '<center><h2>Teams Available</h2></center>'
+	  var html = '<div class="col l12 s12 center-align"><h2>Teams Available</h2></div>'
       html += '<div class="row">'
       data.teams.forEach(tim => {
         const strTeam = JSON.stringify(tim)
@@ -175,7 +175,7 @@ var elTim = () => {
 		<div class="col s12 m6 l6">
 		  <div class="card">
 		    <div class="card-content">
-		      <div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
+		      <div class="center"><img width="64" height="64" src="${tim.crestUrl}" alt="Team Logo"></div>
 		      <div class="center flow-text">${tim.name}</div>
 		      <div class="center">${tim.area.name}</div>
 		    </div>
@@ -199,14 +199,14 @@ var elTimFavorit = () => {
 
   teams.then(data => {
     dataTim = data;
-    var html = '<center><h2>My Favorite Teams</h2></center>'
+    var html = '<div class="col l12 s12 center-align"><h2>My Favorite Teams</h2></div>'
     html += '<div class="row">'
     data.forEach(tim => {
       html += `
       <div class="col s12 m6 l6">
         <div class="card">
           <div class="card-content">
-            <div class="center"><img width="64" height="64" src="${tim.crestUrl}"></div>
+            <div class="center"><img width="64" height="64" src="${tim.crestUrl}" alt="Team Logo"></div>
             <div class="center flow-text">${tim.name}</div>
             <div class="center">${tim.area.name}</div>
           </div>
