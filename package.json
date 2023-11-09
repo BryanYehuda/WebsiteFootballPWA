@@ -45,7 +45,7 @@
   "description": "Web Push library for Node.js",
   "devDependencies": {
     "chalk": "4.0.0",
-    "chromedriver": "81.0.0",
+    "chromedriver": "119.0.1",
     "coveralls": "3.0.9",
     "del": "5.1.0",
     "eslint": "7.0.0",
